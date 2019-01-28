@@ -39,7 +39,7 @@ public class Robot extends TimedRobot
 
     private static UsbCamera driverCamera;
     private static UsbCamera cvBottomCamera;
-    private static UsbCamera cvFrontCamera;
+    public static UsbCamera cvFrontCamera;
 
     private static VideoSink server;
 
