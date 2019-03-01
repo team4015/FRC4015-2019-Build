@@ -1,9 +1,9 @@
-package frc.team4015.sentience;
-import frc.team4015.Robot;
-import frc.team4015.subsystems.*;
-import org.opencv.core.Mat;
-import org.opencv.features2d.*;
-import org.opencv.*;
+//package frc.team4015.sentience;
+//import frc.team4015.Robot;
+//import frc.team4015.subsystems.*;
+//import org.opencv.core.Mat;
+//import org.opencv.features2d.*;
+//import org.opencv.*;
 
 /***
  * @Author: Omar Alam
@@ -13,18 +13,18 @@ import org.opencv.*;
  * TODO: Figure out what this camera will actually do
  * TODO: Actually program image processing
  */
-public class aimingCV {
+//public class aimingCV {
 
-    private Mat imageData;
+  //  private Mat imageData;
 
-    aimingCV(){
-        Robot.cvFrontCamera.
-    }
+    //aimingCV(){
+      //  Robot.cvFrontCamera.
+    //}
 
-    public void aim(){
+    //public void aim(){
 
-        imageData = Robot.cvFrontCamera.
-    }
+      //  imageData = Robot.cvFrontCamera.
+    //}
 
 
-}
+//}

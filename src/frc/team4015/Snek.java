@@ -62,16 +62,16 @@ public class Snek implements Runnable {
 
     @Override
     public void run() {
-
+/*
         try {
-            if (Math.abs(OI.Joystick.getX()) > Math.abs(OI.Joystick.getY())) {
-                if (OI.Joystick.getX() > 0) {
+            if (Math.abs(OI.JoyStickRight.getX()) > Math.abs(OI.JoyStickRight.getY())) {
+                if (OI.JoyStickRight.getX() > 0) {
                     direction = Direction.RIGHT;
                 } else {
                     direction = Direction.LEFT;
                 }
             } else {
-                if (OI.Joystick.getY() > 0) {
+                if (OI.JoyStickRight.getY() > 0) {
                     direction = Direction.UP;
                 } else {
                     direction = Direction.DOWN;
@@ -143,6 +143,7 @@ public class Snek implements Runnable {
         } catch (ConcurrentModificationException e) {
             endGame();
         }
+        */
     }
 
     public void endGame() {

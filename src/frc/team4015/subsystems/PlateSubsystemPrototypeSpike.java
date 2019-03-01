@@ -14,7 +14,7 @@ import frc.team4015.RobotMap;
 /**
  * An example subsystem.  You can replace me with your own Subsystem.
  */
-public class PlateSubsystemPrototypeSpike extends Subsystem implements PlateSubsystem
+/*public class PlateSubsystemPrototypeSpike extends Subsystem implements PlateSubsystem
 {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
@@ -26,11 +26,11 @@ public class PlateSubsystemPrototypeSpike extends Subsystem implements PlateSubs
 
     public PlateSubsystemPrototypeSpike() {
         outTake.setPulseDuration(PULSE_DURATION);
-    }
+    }*/
 
     /**
      * Retracts the spike
-     */
+     *
     @Override
     public void retract() {
         spike.set(false);
@@ -38,7 +38,7 @@ public class PlateSubsystemPrototypeSpike extends Subsystem implements PlateSubs
 
     /**
      * Extends the spike
-     */
+     *
     @Override
     public void extend() {
         spike.set(true);
@@ -46,7 +46,7 @@ public class PlateSubsystemPrototypeSpike extends Subsystem implements PlateSubs
 
     /**
      *
-     */
+     *
     @Override
     public void outTake() {
         outTake.startPulse();
@@ -57,4 +57,4 @@ public class PlateSubsystemPrototypeSpike extends Subsystem implements PlateSubs
         // TODO: Set the default command for a subsystem here. Example:
         //    setDefaultCommand(new MySpecialCommand());
     }
-}
+}*/

@@ -16,9 +16,13 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.team4015.commands.EverythingLol;
 import frc.team4015.commands.ExampleCommand;
 import frc.team4015.drivetrain.DriveTrain;
+import frc.team4015.subsystems.CargoSubsystem;
 import frc.team4015.subsystems.ExampleSubsystem;
+import frc.team4015.subsystems.SuperPlateSubsystem;
+import games.SnakeGame;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -34,20 +38,24 @@ public class Robot extends TimedRobot
     public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
     public static OI oi;
 
-    public static CvSink bottomCVSink;
+    /*public static CvSink bottomCVSink;
     public static CvSink frontCVSink;
-
-    private static UsbCamera driverCamera;
+    
     private static UsbCamera cvBottomCamera;
     public static UsbCamera cvFrontCamera;
 
-    private static VideoSink server;
+    private static VideoSink server;*/
+    
+    public static UsbCamera driverCamera;
 
     private Command autonomousCommand;
     private SendableChooser<Command> chooser = new SendableChooser<>();
 
-    private DriveTrain driveTrain = new DriveTrain();
-
+    public static DriveTrain driveTrain;
+    public static CargoSubsystem cargoManager;
+    public static SuperPlateSubsystem plateSubsystem;
+    public static EverythingLol everythinglol;
+    
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -56,10 +64,20 @@ public class Robot extends TimedRobot
     public void robotInit() 
     {
         oi = new OI();
-        chooser.addDefault("Default Auto", new ExampleCommand());
+        driveTrain = new DriveTrain();
+        cargoManager = new CargoSubsystem();
+        plateSubsystem = new SuperPlateSubsystem();
+        everythinglol = new EverythingLol();
+        SmartDashboard.putBoolean("Claw Extended", plateSubsystem.getClawExtended());
+        SmartDashboard.putBoolean("Plate Extended", plateSubsystem.getPlateExtended());
+        driverCamera = CameraServer.getInstance().startAutomaticCapture(0);
+       
+        
+        //chooser.addDefault("Default Auto", new ExampleCommand());
         // chooser.addObject("My Auto", new MyAutoCommand());
-        SmartDashboard.putData("Auto mode", chooser);
-
+        //SmartDashboard.putData("Auto mode", chooser);
+        
+        /*
         driverCamera = CameraServer.getInstance().startAutomaticCapture(0);
         cvBottomCamera = CameraServer.getInstance().startAutomaticCapture(1);
         cvFrontCamera = CameraServer.getInstance().startAutomaticCapture(2);
@@ -70,7 +88,7 @@ public class Robot extends TimedRobot
         bottomCVSink.setSource(cvBottomCamera);
         frontCVSink.setEnabled(true);
         frontCVSink.setSource(cvFrontCamera);
-        server.setSource(driverCamera);
+        server.setSource(driverCamera);*/
     }
 
     /**
@@ -82,6 +100,11 @@ public class Robot extends TimedRobot
     public void disabledInit() 
     {
         
+    }
+    
+    @Override
+    public void robotPeriodic() {
+    	
     }
 
     @Override
@@ -140,6 +163,9 @@ public class Robot extends TimedRobot
         {
             autonomousCommand.cancel();
         }
+       // if (everythinglol != null) {
+       // 	everythinglol.start();
+       // }
     }
 
     /**
@@ -149,15 +175,30 @@ public class Robot extends TimedRobot
     public void teleopPeriodic() 
     {
         Scheduler.getInstance().run();
+       // CargoSubsystem cargo
         driveTrain.drive();
+        cargoManager.readyForInput();
+        plateSubsystem.readyForInput();
+        SmartDashboard.putBoolean("Claw Extended", plateSubsystem.getClawExtended());
+        SmartDashboard.putBoolean("Plate Extended", plateSubsystem.getPlateExtended());
     }
 
+    //snakeGame object
+    SnakeGame snakeGame;
     /**
      * This function is called periodically during test mode.
      */
     @Override
     public void testPeriodic() 
     {
-        
+        snakeGame.update();
     }
+    //Run when robot is initialized in test mode
+    @Override
+    public void testInit() {
+    	snakeGame = new SnakeGame();
+    }
+    
+   
+    
 }

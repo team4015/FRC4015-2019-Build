@@ -25,14 +25,22 @@ public class RobotMap
     // public static int rangefinderPort = 1;
     // public static int rangefinderModule = 1;
 
-    public static final int LEFT_MOTOR = 0;
-    public static final int RIGHT_MOTOR = 1;
-    public static final int CONTROLLER_STICK_PORT = 0;
+    public static final int LEFT_MOTOR_FRONT = 3;
+    public static final int LEFT_MOTOR_REAR = 2;
+    public static final int RIGHT_MOTOR_FRONT = 1;
+    public static final int RIGHT_MOTOR_REAR = 0;
+    public static final int CONTROLLER_STICK_PORT_RIGHT = 0;
+    public static final int CONTROLLER_STICK_PORT_LEFT = 1;
+    
     public static final int CONTROLLER_XBOX_PORT = 1;
+    public static final int CONTROLLER_XBOX_PORT_MISC = 2;
 
-    public static final int PLATE_PISTON_A = 2;
-    public static final int PLATE_PISTON_B = 3;
+    public static final int PLATE_PISTON_DEPLOY = 2;
+    public static final int PLATE_PISTON_RETRACT = 3;
+    public static final int CLAW_PISTON_DEPLOY = 4;
+    public static final int CLAW_PISTON_RETRACT = 5;
 
-    public static final int CARGO_INTAKE = 4;
+    public static final int CARGO_INTAKE = 5;
+    public static final int CARGO_INTAKE2=6;
 
 }

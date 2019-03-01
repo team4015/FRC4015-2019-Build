@@ -7,6 +7,7 @@
 
 package frc.team4015;
 
+import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 
@@ -45,6 +46,9 @@ public class OI
     // button.whenReleased(new ExampleCommand());
 
     public static XboxController XBoxController = new XboxController(RobotMap.CONTROLLER_XBOX_PORT);
-    public static Joystick Joystick = new Joystick(RobotMap.CONTROLLER_STICK_PORT);
-
+    public static XboxController XBoxControllerMisc = new XboxController(RobotMap.CONTROLLER_XBOX_PORT_MISC);
+    
+    //public static Joystick JoyStickRight = new Joystick(RobotMap.CONTROLLER_STICK_PORT_RIGHT);
+    //public static Joystick JoyStickLeft = new Joystick(RobotMap.CONTROLLER_STICK_PORT_LEFT);
+    
 }
